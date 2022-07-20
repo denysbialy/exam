@@ -35,7 +35,7 @@ router.get(
   transactionController.getTransactions
 );
 
-router.post(
+router.get(
   '/getCustomersContests',
   checkToken.checkToken,
   contestController.getCustomersContests

@@ -20,7 +20,7 @@ module.exports.dataForContest = async (req, res, next) => {
     const {
       body: { characteristic1, characteristic2 },
     } = req;
-    console.log(req.body, characteristic1, characteristic2);
+    
     const types = [characteristic1, characteristic2, 'industry'].filter(
       Boolean
     );
@@ -259,12 +259,11 @@ module.exports.setOfferStatus = async (req, res, next) => {
   }
 };
 
-module.exports.getCustomersContests = (req, res, next) => {
-  console.log('-------------------', req.headers.status)
-  Contest.findAll({
-    where: { status: req.headers.status, userId: req.tokenData.userId },
-    limit: req.query.limit,
-    offset: req.query.offset ? req.query.offset : 0,
+module.exports.getCustomersContests = async (req, res, next) => {
+  const { limit, status } = req.query;
+  await Contest.findAll({
+    where: { status, userId: req.tokenData.userId },
+    limit,
     order: [['id', 'DESC']],
     include: [
       {

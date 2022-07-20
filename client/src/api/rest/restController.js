@@ -1,6 +1,5 @@
 import http from '../interceptor';
 
-
 export const registerRequest = data => http.post('registration', data);
 export const loginRequest = data => http.post('login', data);
 export const getUser = () => http.post('getUser');
@@ -29,12 +28,7 @@ export const removeChatFromCatalog = data =>
 export const changeCatalogName = data => http.post('updateNameCatalog', data);
 export const getCustomersContests = data =>
   http.get(
-    'getCustomersContests?limit=2&offset=0',
-    {
-      headers: {
-        status: data.contestStatus,
-      },
-    }
+    `getCustomersContests?limit=${data.limit}&status=${data.contestStatus}`
   );
 
 export const getActiveContests = ({
