@@ -51,7 +51,7 @@ module.exports.dataForContest = async (req, res, next) => {
 module.exports.getContestById = async (req, res, next) => {
   try {
     let contestInfo = await Contest.findOne({
-      where: { id: req.headers.contestid },
+      where: { id: req.query.contestId },
       order: [[Offer, 'id', 'asc']],
       include: [
         {
