@@ -3,35 +3,25 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './Header.module.sass';
 import CONSTANTS from '../../constants';
-import {
-  getUserAction,
-  clearUserStore,
-  headerRequest,
-} from '../../actions/actionCreator';
+import { clearUserStore } from '../../actions/actionCreator';
 import RenderLoginButtons from './renderLoginButtons/RenderLoginButtons';
+import TopHeader from './TopHeader/TopHeader';
 
 class Header extends React.Component {
-
   render () {
     if (this.props.isFetching) {
       return null;
     }
     return (
       <div className={styles.headerContainer}>
-        <div className={styles.fixedHeader}>
-          <span className={styles.info}>
-            Squadhelp recognized as one of the Most Innovative Companies by Inc
-            Magazine.
-          </span>
-          <a href='http://www.google.com'>Read Announcement</a>
-        </div>
+        <TopHeader />
         <div className={styles.loginSignnUpHeaders}>
           <div className={styles.numberContainer}>
             <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt='phone' />
             <span>(877)&nbsp;355-3585</span>
           </div>
           <div className={styles.userButtonsContainer}>
-            <RenderLoginButtons props={this.props}/>
+            <RenderLoginButtons props={this.props} />
           </div>
         </div>
         <div className={styles.navContainer}>
@@ -193,7 +183,6 @@ class Header extends React.Component {
 
 const mapStateToProps = state => state.userStore;
 const mapDispatchToProps = dispatch => ({
-  // getUser: () => dispatch(headerRequest()),
   clearUserStore: () => dispatch(clearUserStore()),
 });
 
