@@ -14,7 +14,7 @@ function RenderLoginButtons ({props}) {
   const renderLoginButton = () => {
     if (data) {
         return (
-          <>
+          <div className={styles.userButtonsContainer}>
             <div className={styles.userInfo}>
               <img src={data.avatar === 'anon.png'? CONSTANTS.ANONYM_IMAGE_PATH: `${CONSTANTS.publicURL}${data.avatar}`}alt='user'/>
               <span>{`Hi, ${data.displayName}`}</span>
@@ -28,14 +28,14 @@ function RenderLoginButtons ({props}) {
               </ul>
             </div>
             <img src={`${CONSTANTS.STATIC_IMAGES_PATH}email.png`} className={styles.emailIcon} alt='email'/>
-          </>
+          </div>
         );
       }
       return (
-        <>
+        <div className={styles.userButtonsContainer}>
           <Link to='/login' style={{ textDecoration: 'none' }}><span className={styles.btn}>LOGIN</span></Link>
           <Link to='/registration' style={{ textDecoration: 'none' }}><span className={styles.btn}>SIGN UP</span></Link>
-        </>
+        </div>
       );
   };
   return <>{renderLoginButton()}</>;

@@ -18,9 +18,7 @@ class Header extends React.Component {
         <TopHeader />
         <div className={styles.loginSignnUpHeaders}>
          <PhoneHeader />
-          <div className={styles.userButtonsContainer}>
-            <RenderLoginButtons props={this.props} />
-          </div>
+         <RenderLoginButtons props={this.props} />
         </div>
         <div className={styles.navContainer}>
           <img
