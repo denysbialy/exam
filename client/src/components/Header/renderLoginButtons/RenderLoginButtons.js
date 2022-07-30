@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './Header.module.sass';
+import styles from './RenderLoginButtons.module.sass';
 import CONSTANTS from '../../../constants';
 
 function RenderLoginButtons ({props}) {
