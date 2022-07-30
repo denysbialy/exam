@@ -84,4 +84,5 @@ export default {
     textLink: 'Read Announcement',
     link: 'http://www.google.com',
   },
+  phoneHeader: '(877)355-3585'
 };

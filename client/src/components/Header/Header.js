@@ -6,6 +6,7 @@ import CONSTANTS from '../../constants';
 import { clearUserStore } from '../../actions/actionCreator';
 import RenderLoginButtons from './renderLoginButtons/RenderLoginButtons';
 import TopHeader from './TopHeader/TopHeader';
+import PhoneHeader from './PhoneHeader/PhoneHeader';
 
 class Header extends React.Component {
   render () {
@@ -16,10 +17,7 @@ class Header extends React.Component {
       <div className={styles.headerContainer}>
         <TopHeader />
         <div className={styles.loginSignnUpHeaders}>
-          <div className={styles.numberContainer}>
-            <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt='phone' />
-            <span>(877)&nbsp;355-3585</span>
-          </div>
+         <PhoneHeader />
           <div className={styles.userButtonsContainer}>
             <RenderLoginButtons props={this.props} />
           </div>
