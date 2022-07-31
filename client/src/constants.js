@@ -84,5 +84,42 @@ export default {
     textLink: 'Read Announcement',
     link: 'http://www.google.com',
   },
-  phoneHeader: '(877)355-3585'
+  phoneHeader: '(877)355-3585',
+
+  NAVIGATION_LINKS: {
+    'Name Ideas': [
+      'Beauty',
+      'Consulting',
+      'E-Commerce',
+      'Fashion & Clothing',
+      'Finance',
+      'Real Estate',
+      'Tech',
+      'More Categories',
+    ],
+    Contests: [
+      'How it works',
+      'Pricing',
+      'Agency Service',
+      'Active Contests',
+      'Winners',
+      'Leaderboard',
+      'Become a Creative',
+    ],
+    'Our Work': ['Names', 'Taglines', 'Logos', 'Testimonials'],
+    'Names For Sale': [
+      'Popular Names',
+      'Short Names',
+      'Intriguing Names',
+      'Names by Category',
+      'Visual Name Search',
+      'Sell Your Domians',
+    ],
+    Blog: [
+      'Ultimate Naming Guide',
+      'Poetic Devices In Business Naming',
+      'Crowded Bar Theory',
+      'All Articles',
+    ],
+  },
 };
