@@ -24,7 +24,7 @@ function RenderLoginButtons ({props}) {
                 <li><Link to='/account' style={{ textDecoration: 'none' }}><span>My Account</span></Link></li>
                 <li><Link to='http:/www.google.com' style={{ textDecoration: 'none' }}><span>Messages</span></Link></li>
                 <li><Link to='http:/www.google.com' style={{ textDecoration: 'none' }}><span>Affiliate Dashboard</span></Link></li>
-                <li><span onClick={logOut}>Logout</span></li>
+                <li><button onClick={logOut}>Logout</button></li>
               </ul>
             </div>
             <img src={`${CONSTANTS.STATIC_IMAGES_PATH}email.png`} className={styles.emailIcon} alt='email'/>
@@ -33,8 +33,8 @@ function RenderLoginButtons ({props}) {
       }
       return (
         <div className={styles.userButtonsContainer}>
-          <Link to='/login' style={{ textDecoration: 'none' }}><span className={styles.btn}>LOGIN</span></Link>
-          <Link to='/registration' style={{ textDecoration: 'none' }}><span className={styles.btn}>SIGN UP</span></Link>
+          <Link to='/login' style={{ textDecoration: 'none' }}><button className={styles.btn}>LOGIN</button></Link>
+          <Link to='/registration' style={{ textDecoration: 'none' }}><button className={styles.btn}>SIGN UP</button></Link>
         </div>
       );
   };
