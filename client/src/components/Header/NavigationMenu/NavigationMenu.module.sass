@@ -33,6 +33,7 @@
 
     .leftNav
       display: flex
+      bottom: 40px
       @media(max-width: 750px)
         align-items: center
         flex-direction: column
@@ -60,7 +61,7 @@
             display: flex
             align-items: center
             justify-content: flex-start
-            margin-right: 30px
+            margin-top: 7px
             @media(max-width: 700px)
               width: 100%
               padding: 0 15px
@@ -68,7 +69,6 @@
             &:hover
               span
                 color: #f27e51
-
               ul
                 display: block
                 position: absolute
@@ -79,6 +79,14 @@
                 @media(max-width: 700px)
                   top: auto
                   left: 145px
+                li
+                  height: 30px
+                  padding: 0 0 0 10px
+                  a
+                    display: flex
+                    align-items: center
+                    height: 100%
+                    font-size: 14px
 
             ul
               padding: 0
@@ -87,9 +95,8 @@
               display: none
 
             span
+              display: flex
+              justify-content: center
               color: #495d8b
               width: 100px
               padding: 0
-            //   font-size: 15px
-            //   font-weight: 300
-            //   padding: 15px 0
