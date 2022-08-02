@@ -1,11 +1,10 @@
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './NavigationMenu.module.sass';
 import CONSTANTS from '../../../constants';
 import DropDownList from './DropDownList/DropDownList';
 
-function NavigationMenu ({props}) {
-
-    const navList = Object.keys(CONSTANTS.NAVIGATION_LINKS)
+function NavigationMenu ({ userStore }) {
+  const navList = Object.keys(CONSTANTS.NAVIGATION_LINKS);
 
   return (
     <div className={styles.navContainer}>
@@ -19,21 +18,21 @@ function NavigationMenu ({props}) {
 
       <div className={styles.leftNav}>
         <div className={styles.nav}>
-        <ul>
+          <ul>
             {navList.map((elem, index) => (
-                <li key={index}>
-                    <span>{elem}</span>
-                    <img
-                        src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`}
-                        alt="menu"
-                    />
+              <li key={index}>
+                <span>{elem}</span>
+                <img
+                  src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`}
+                  alt='menu'
+                />
 
-                    <DropDownList navigation={CONSTANTS.NAVIGATION_LINKS[elem]} />
-                </li>
+                <DropDownList navigation={CONSTANTS.NAVIGATION_LINKS[elem]} />
+              </li>
             ))}
-        </ul>
+          </ul>
         </div>
-        {props.data && props.data.role !== CONSTANTS.CREATOR && (
+        {userStore.data && userStore.data.role !== CONSTANTS.CREATOR && (
           <Link className={styles.startContestBtn} to='/startContest'>
             START CONTEST
           </Link>

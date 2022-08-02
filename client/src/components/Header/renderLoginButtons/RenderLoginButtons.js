@@ -2,14 +2,13 @@ import { Link } from 'react-router-dom';
 import styles from './RenderLoginButtons.module.sass';
 import CONSTANTS from '../../../constants';
 
-function RenderLoginButtons ({props}) {
-
+function RenderLoginButtons ({userStore, clearUser}) {
     const logOut = () => {
         localStorage.clear();
-        props.clearUserStore();
+        clearUser();
       };
 
-    const {data}= props;
+    const {data}= userStore;
 
   const renderLoginButton = () => {
     if (data) {
