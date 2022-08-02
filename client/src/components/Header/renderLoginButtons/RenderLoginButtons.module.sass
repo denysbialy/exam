@@ -6,7 +6,6 @@
   display: flex
   justify-content: center
   align-items: center
-  padding: 0 15px
   border-right: 1px solid #ebebeb
 
   &:hover
@@ -18,7 +17,6 @@
   ul
     border: 1px solid #eee
     z-index: 500
-    padding: 5px 0
     list-style: none
     background: white
     width: 180px
@@ -27,16 +25,23 @@
     li
       text-align: left
       position: relative
+      padding: 0
 
       &:hover
         background: #f9fafb
-
-      span
+      a
+        width: 100%
+        padding: 15px
+      button
         display: inline-block
-        padding: 5px 15px
+        border: none
+        padding: 15px
         color: #333
         font-size: 16px
-        width: 80%
+        width: 100%
+        text-align: left
+        padding-left: 20px
+        background-color: white
 
   img
     width: 20px
