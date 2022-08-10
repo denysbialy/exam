@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { selectBundle } from '../../actions/actionCreator';
 import BundleBox from '../../components/BundleBox/BundleBox';
 import CONSTANTS from '../../constants';
 import styles from './StartContestPage.module.sass';
 import Footer from '../../components/Footer/Footer';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Header from '../../components/Header/Header';
+import StartContestHeader from '../../components/StartContest/StartContestHeader/StartContestHeader';
 
 const StartContestPage = props => {
+
   const history = useHistory();
   if (props.userStore.data.role !== CONSTANTS.CUSTOMER) {
     history.replace('/');
@@ -29,18 +30,8 @@ const StartContestPage = props => {
   return (
     <div>
       <Header />
-      <div className={styles.startContestHeader}>
-        <div className={styles.startContestInfo}>
-          <h2>START A CONTEST</h2>
-          <span>
-            Launching a contest on Squadhelp is very simple. Select the type of
-            contest you would like to launch from the list below. Provide a
-            detailed brief and select a pricing package. Begin receiving
-            submissions instantly!
-          </span>
-        </div>
-        <ProgressBar currentStep={1} />
-      </div>
+      <StartContestHeader />
+
       <div className={styles.baseBundleContainer}>
         <div className={styles.infoBaseBundles}>
           <span className={styles.headerInfo}>

@@ -5,12 +5,13 @@ import { saveContestToStore, clearDataForContest } from '../../actions/actionCre
 import NextButton from '../../components/NextButton/NextButton';
 import ContestForm from '../../components/ContestForm/ContestForm';
 import BackButton from '../../components/BackButton/BackButton';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import { useHistory } from 'react-router-dom';
+import ContestCreationHeader from '../../components/StartContest/StartContestHeader/ContestCreationHeader';
 
 const ContestCreationPage = (props) => {
+  console.log(props.bundleStore)
   const history = useHistory();
   const formRef = useRef();
   const contestData = props.contestStore.contests[props.contestType] ? props.contestStore.contests[props.contestType] : { contestType: props.contestType };
@@ -32,17 +33,8 @@ const ContestCreationPage = (props) => {
   return (
     <div>
       <Header />
-      <div className={styles.startContestHeader}>
-        <div className={styles.startContestInfo}>
-          <h2>
-            {props.title}
-          </h2>
-          <span>
-            Tell us a bit more about your business as well as your preferences so that creatives get a better idea about what you are looking for
-          </span>
-        </div>
-        <ProgressBar currentStep={2} />
-      </div>
+      <ContestCreationHeader title={props.title}/>
+
       <div className={styles.container}>
         <div className={styles.formContainer}>
           <ContestForm
