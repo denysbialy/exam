@@ -8,10 +8,10 @@ import BackButton from '../../components/BackButton/BackButton';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import { useHistory } from 'react-router-dom';
-import ContestCreationHeader from '../../components/StartContest/StartContestHeader/ContestCreationHeader';
+import ContestCreationHeader from '../../components/StartContestCreation/ContestHeader/ContestCreationHeader';
 
 const ContestCreationPage = (props) => {
-  console.log(props.bundleStore)
+  
   const history = useHistory();
   const formRef = useRef();
   const contestData = props.contestStore.contests[props.contestType] ? props.contestStore.contests[props.contestType] : { contestType: props.contestType };

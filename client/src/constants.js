@@ -131,4 +131,56 @@ export default {
     description:
       'Tell us a bit more about your business as well as your preferences so that creatives get a better idea about what you are looking for',
   },
+  BASE_BUNDEL: {
+    title: 'Our Most Popular',
+    categories: 'Categories',
+    description:
+      'Pick from our most popular categories, launch a contest and begin receiving submissions right away',
+  },
+  BASE_BUNDEL_BOX: [
+    {
+      path: ['Name.png'],
+      header: 'Name',
+      describe: 'Get up and running with the perfect name.',
+    },
+    {
+      path: ['Logo.png'],
+      header: 'Logo',
+      describe: 'Kickstart your venture with a unique, memorable logo.',
+    },
+    {
+      path: ['Tagline.png'],
+      header: 'Tagline',
+      describe:
+        'Connect deeply with your target audience with an on-target tagline.',
+    },
+  ],
+  COMBINE_BUNDEL: {
+    title: 'Save With Our Bundle Packages',
+    description: 'Launch multiple contests and pay a discounted bundle price',
+  },
+  COMBINE_BUNDEL_BOX: [
+    {
+      path: ['Name.png', 'Logo.png'],
+      header: 'Name+Logo',
+      describe:
+        'Get the essentials needed to establish your brand together and save.',
+    },
+    {
+      path: ['Name.png', 'Tagline.png'],
+      header: 'Name+Tagline',
+      describe: 'Communicate your vision with the perfect Name/Tagline combo.',
+    },
+    {
+      path: ['Logo.png', 'Tagline.png'],
+      header: 'Tagline+Logo',
+      describe: 'Description for Logo + Tagline will come here.',
+    },
+    {
+      path: ['Name.png', 'Logo.png', 'Tagline.png'],
+      header: 'Name+Tagline+Logo',
+      describe:
+        'Establish your entire brand identity and save with this bundle.',
+    },
+  ],
 };
