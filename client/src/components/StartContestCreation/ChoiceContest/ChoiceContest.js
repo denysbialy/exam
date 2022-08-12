@@ -39,6 +39,7 @@ const ChoiceContest = () => {
           {CONSTANTS.BASE_BUNDEL_BOX.map(bundelBox => {
             return (
               <BundleBox
+                key={bundelBox.header}
                 path={bundelBox.path}
                 header={bundelBox.header}
                 describe={bundelBox.describe}
@@ -62,6 +63,7 @@ const ChoiceContest = () => {
           {CONSTANTS.COMBINE_BUNDEL_BOX.map(bundelBox => {
             return (
               <BundleBox
+                key={bundelBox.header}
                 path={bundelBox.path}
                 header={bundelBox.header}
                 describe={bundelBox.describe}
