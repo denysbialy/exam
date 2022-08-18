@@ -92,24 +92,19 @@ class ContestForm extends React.Component {
                 <span className={styles.inputHeader}>Title of contest</span>
                 <FormInput
                   name='title'
-                  type='text'
                   label='Title'
                   classes={{
                     container: styles.componentInputContainer,
                     input: styles.input,
                     warning: styles.warning,
+                    inputError: styles.inputError,
+                    errorMsg: styles.errorMsg,
                   }}
                 />
               </div>
               <div className={styles.inputContainer}>
                 <SelectInput
                   name='industry'
-                  classes={{
-                    inputContainer: styles.selectInputContainer,
-                    inputHeader: styles.selectHeader,
-                    selectInput: styles.select,
-                    warning: styles.warning,
-                  }}
                   header='Describe industry associated with your venture'
                   optionsArray={this.props.dataForContest.data.industry}
                 />
@@ -170,9 +165,7 @@ class ContestForm extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { isEditContest } = state.contestByIdStore;
   return {
-    isEditContest,
     contestStore: state.contestStore,
     dataForContest: state.dataForContest,
     initialValues: ownProps.defaultData,

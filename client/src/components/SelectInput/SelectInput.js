@@ -1,9 +1,8 @@
 import React, { useLayoutEffect } from 'react';
 import { Field, ErrorMessage } from 'formik';
-
+import styles from './SelectInput.module.sass'
 const SelectInput = ({
   header,
-  classes,
   optionsArray,
   valueArray,
   ...props
@@ -39,9 +38,9 @@ const SelectInput = ({
   }, []);
 
   return (
-    <div className={classes.inputContainer}>
-      <span className={classes.inputHeader}>{header}</span>
-      <select {...field} className={classes.selectInput}>
+    <div className={styles.inputContainer}>
+      <span className={styles.inputHeader}>{header}</span>
+      <select {...field} className={styles.selectInput}>
         {getOptionsArray()}
       </select>
     </div>
@@ -50,7 +49,6 @@ const SelectInput = ({
 
 const SelectInputWrapper = ({
   header,
-  classes,
   optionsArray,
   valueArray,
   ...rest
@@ -61,11 +59,10 @@ const SelectInputWrapper = ({
         <SelectInput
           {...fieldProps}
           header={header}
-          classes={classes}
           optionsArray={optionsArray}
           valueArray={valueArray}
         />
-        <ErrorMessage name={fieldProps.field.name} component="span" className={classes.warning} />
+        <ErrorMessage name={fieldProps.field.name} component="span" />
       </>
     )}
   </Field>
