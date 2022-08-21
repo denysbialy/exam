@@ -108,35 +108,24 @@ class ContestForm extends React.Component {
                   optionsArray={this.props.dataForContest.data.industry}
                 />
               </div>
-              <div className={styles.inputContainer}>
-                <span className={styles.inputHeader}>
-                  What does your company / business do?
-                </span>
-                <FormTextArea
-                  name='focusOfWork'
-                  type='text'
-                  label='e.g. We`re an online lifestyle brand that provides stylish and high quality apparel to the expert eco-conscious shopper'
-                  classes = {{
-                    errorMsg: styles.errorMsg,
-                    inputError: styles.inputError,
-                  }}
-                />
-              </div>
-              <div className={styles.inputContainer}>
-                <span className={styles.inputHeader}>
-                  Tell us about your customers
-                </span>
-                <FormTextArea
-                  name='targetCustomer'
-                  type='text'
-                  label='customers'
-                  classes = {{
-                    errorMsg: styles.errorMsg,
-                    inputError: styles.inputError,
-                  }}
-                />
-              </div>
+              {CONSTANTS.FORM_TEXT_AREA.map(formTextArea => {
+                return (
+                  <div className={styles.inputContainer} key={formTextArea.name}>
+                    <span className={styles.inputHeader}>{formTextArea.title}</span>
+                    <FormTextArea
+                      name={formTextArea.name}
+                      type='text'
+                      label={formTextArea.label}
+                      classes={{
+                        errorMsg: styles.errorMsg,
+                        inputError: styles.inputError,
+                      }}
+                    />
+                  </div>
+                );
+              })}
               <OptionalSelects {...this.props} />
+              
               <FieldFileInput
                 name='file'
                 classes={{

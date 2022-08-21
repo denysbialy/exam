@@ -183,4 +183,18 @@ export default {
         'Establish your entire brand identity and save with this bundle.',
     },
   ],
+  FORM_TEXT_AREA: [
+    {
+      title: 'What does your company / business do?',
+      name: 'focusOfWork',
+      label: 'e.g. We`re an online lifestyle brand that provides stylish and high quality apparel to the expert eco-conscious shopper',
+      
+    },
+    {
+      title: 'Tell us about your customers',
+      name: 'targetCustomer',
+      label: 'customers',
+      
+    },
+  ],
 };
