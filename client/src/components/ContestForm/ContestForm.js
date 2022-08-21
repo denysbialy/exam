@@ -94,7 +94,6 @@ class ContestForm extends React.Component {
                   name='title'
                   label='Title'
                   classes={{
-                    container: styles.componentInputContainer,
                     input: styles.input,
                     warning: styles.warning,
                     inputError: styles.inputError,
@@ -117,10 +116,9 @@ class ContestForm extends React.Component {
                   name='focusOfWork'
                   type='text'
                   label='e.g. We`re an online lifestyle brand that provides stylish and high quality apparel to the expert eco-conscious shopper'
-                  classes={{
-                    container: styles.componentInputContainer,
-                    inputStyle: styles.textArea,
-                    warning: styles.warning,
+                  classes = {{
+                    errorMsg: styles.errorMsg,
+                    inputError: styles.inputError,
                   }}
                 />
               </div>
@@ -132,10 +130,9 @@ class ContestForm extends React.Component {
                   name='targetCustomer'
                   type='text'
                   label='customers'
-                  classes={{
-                    container: styles.componentInputContainer,
-                    inputStyle: styles.textArea,
-                    warning: styles.warning,
+                  classes = {{
+                    errorMsg: styles.errorMsg,
+                    inputError: styles.inputError,
                   }}
                 />
               </div>

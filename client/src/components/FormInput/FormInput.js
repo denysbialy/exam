@@ -16,7 +16,7 @@ const FormInput = ({ classes, label, name, ...rest }) => (
       });
 
       return (
-        <div className={classes.container}>
+        <div>
           <input
             type='text'
             {...field}
