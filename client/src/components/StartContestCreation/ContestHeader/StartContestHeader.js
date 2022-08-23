@@ -1,6 +1,6 @@
 import ProgressBar from './ProgressBar/ProgressBar';
-import styles from './ContestHeader.module.sass'
-import CONSTANTS from '../../../constants'
+import styles from './ContestHeader.module.sass';
+import CONSTANTS from '../../../constants';
 const StartContestHeader = () => {
   return (
     <>

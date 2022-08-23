@@ -20,7 +20,7 @@ module.exports.dataForContest = async (req, res, next) => {
     const {
       body: { characteristic1, characteristic2 },
     } = req;
-    
+
     const types = [characteristic1, characteristic2, 'industry'].filter(
       Boolean
     );

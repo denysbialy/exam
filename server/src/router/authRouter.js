@@ -12,6 +12,6 @@ authRouter.post(
   AuthController.registration
 );
 authRouter.post('/login', validateLogin, AuthController.login);
-authRouter.post('/refresh',checkRefreshToken, AuthController.refresh);
+authRouter.post('/refresh', checkRefreshToken, AuthController.refresh);
 
 module.exports = authRouter;

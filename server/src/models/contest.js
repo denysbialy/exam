@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       // define association here
       Contest.belongsTo(models.User, { foreignKey: 'userId', sourceKey: 'id' });
-      Contest.hasMany(models.Offer, { foreignKey: 'contestId', targetKey: 'id' });
+      Contest.hasMany(models.Offer, {
+        foreignKey: 'contestId',
+        targetKey: 'id',
+      });
     }
   }
   Contest.init(

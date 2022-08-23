@@ -25,7 +25,9 @@ const FormInput = ({ classes, label, name, ...rest }) => (
             {...rest}
           />
           <ErrorMessage name={name}>
-            {() => <div className={classes.errorMsg}>Field must not be empty</div>}
+            {() => (
+              <div className={classes.errorMsg}>Field must not be empty</div>
+            )}
           </ErrorMessage>
         </div>
       );

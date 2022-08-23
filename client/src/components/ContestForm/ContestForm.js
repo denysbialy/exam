@@ -110,8 +110,13 @@ class ContestForm extends React.Component {
               </div>
               {CONSTANTS.FORM_TEXT_AREA.map(formTextArea => {
                 return (
-                  <div className={styles.inputContainer} key={formTextArea.name}>
-                    <span className={styles.inputHeader}>{formTextArea.title}</span>
+                  <div
+                    className={styles.inputContainer}
+                    key={formTextArea.name}
+                  >
+                    <span className={styles.inputHeader}>
+                      {formTextArea.title}
+                    </span>
                     <FormTextArea
                       name={formTextArea.name}
                       type='text'
@@ -125,7 +130,7 @@ class ContestForm extends React.Component {
                 );
               })}
               <OptionalSelects {...this.props} />
-              
+
               <FieldFileInput
                 name='file'
                 classes={{

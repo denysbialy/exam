@@ -1,10 +1,13 @@
-const {User} = require('../../models');
+const { User } = require('../../models');
 const NotFound = require('../../errors/UserNotFoundError');
 const ServerError = require('../../errors/ServerError');
 
 module.exports.updateUser = async (data, userId, transaction) => {
-  const [updatedCount, [updatedUser]] = await User.update(data,
-    { where: { id: userId }, returning: true, transaction });
+  const [updatedCount, [updatedUser]] = await User.update(data, {
+    where: { id: userId },
+    returning: true,
+    transaction,
+  });
   if (updatedCount !== 1) {
     throw new ServerError('cannot update user');
   }
@@ -20,7 +23,7 @@ module.exports.findUser = async (predicate, transaction) => {
   }
 };
 
-module.exports.userCreation = async (data) => {
+module.exports.userCreation = async data => {
   const newUser = await User.create(data);
   if (!newUser) {
     throw new ServerError('server error on user creation');

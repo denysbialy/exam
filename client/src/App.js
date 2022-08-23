@@ -55,19 +55,31 @@ function App () {
         />
         <PrivateRoute exact path='/payment' component={Payment} />
         <PrivateRoute exact path='/startContest' component={StartContestPage} />
-        <PrivateRoute exact roles={[CONSTANTS.CUSTOMER]} path='/startContest/nameContest'>
+        <PrivateRoute
+          exact
+          roles={[CONSTANTS.CUSTOMER]}
+          path='/startContest/nameContest'
+        >
           <ContestCreationPage
             contestType={CONSTANTS.NAME_CONTEST}
             title='Company Name'
           />
         </PrivateRoute>
-        <PrivateRoute exact roles={[CONSTANTS.CUSTOMER]} path='/startContest/taglineContest'>
+        <PrivateRoute
+          exact
+          roles={[CONSTANTS.CUSTOMER]}
+          path='/startContest/taglineContest'
+        >
           <ContestCreationPage
             contestType={CONSTANTS.TAGLINE_CONTEST}
             title='TAGLINE'
           />
         </PrivateRoute>
-        <PrivateRoute exact roles={[CONSTANTS.CUSTOMER]} path='/startContest/logoContest'>
+        <PrivateRoute
+          exact
+          roles={[CONSTANTS.CUSTOMER]}
+          path='/startContest/logoContest'
+        >
           <ContestCreationPage
             contestType={CONSTANTS.LOGO_CONTEST}
             title='LOGO'

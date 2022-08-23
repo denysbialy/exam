@@ -29,7 +29,6 @@ router.post(
 );
 
 router.get(
-
   '/transactions',
   checkToken.checkToken,
   transactionController.getTransactions

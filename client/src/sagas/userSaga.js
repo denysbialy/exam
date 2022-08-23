@@ -8,7 +8,9 @@ import { controller } from '../api/ws/socketController';
 export function * loginSaga (action) {
   yield put({ type: ACTION.AUTH_ACTION_REQUEST });
   try {
-    const {data: {user}} = yield AuthApi.loginRequest(action.data);
+    const {
+      data: { user },
+    } = yield AuthApi.loginRequest(action.data);
     controller.subscribe(user.id);
     yield put(ActionCreators.authActionSuccess(user));
   } catch (err) {
@@ -19,7 +21,9 @@ export function * loginSaga (action) {
 export function * registerSaga (action) {
   yield put({ type: ACTION.AUTH_ACTION_REQUEST });
   try {
-    const {data: {user}} = yield AuthApi.registerRequest(action.data);
+    const {
+      data: { user },
+    } = yield AuthApi.registerRequest(action.data);
     controller.subscribe(user.id);
     yield put(ActionCreators.authActionSuccess(user));
   } catch (e) {
@@ -30,15 +34,15 @@ export function * registerSaga (action) {
 export function * refreshSaga (action) {
   yield put({ type: ACTION.AUTH_ACTION_REQUEST });
   try {
-    const {data: {user}} = yield AuthApi.refresh(action.data);
+    const {
+      data: { user },
+    } = yield AuthApi.refresh(action.data);
     controller.subscribe(user.id);
     yield put(ActionCreators.authActionSuccess(user));
   } catch (error) {
     yield put({ type: ACTION.AUTH_ACTION_ERROR, error: error.response });
   }
 }
-
-
 
 export function * updateUserData (action) {
   try {
