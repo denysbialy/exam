@@ -130,11 +130,6 @@ export const clearContestList = () => ({
   type: ACTION.CLEAR_CONTESTS_LIST,
 });
 
-export const onlyForNotAuthorize = data => ({
-  type: ACTION.ONLY_FOR_NOT_AUTHORIZE_USERS,
-  replace: data,
-});
-
 export const headerRequest = () => ({
   type: ACTION.HEADER_REQUEST_AUTHORIZE,
 });
