@@ -109,7 +109,6 @@ const ContestForm = props => {
             })}
             <OptionalSelects {...props} dataForContest={dataForContest} />
             <FieldFileInput name='file' />
-            {console.log(props)}
             {props.isEditContest ? (
               <button type='submit' className={styles.changeData}>
                 Set Data
