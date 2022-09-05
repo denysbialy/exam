@@ -7,8 +7,11 @@ import styles from './PayForm.module.sass';
 import { changeFocusOnCard } from '../../actions/actionCreator';
 import PayInput from '../InputComponents/PayInput/PayInput';
 import Schems from '../../validators/validationSchems';
+import { useHistory } from 'react-router-dom';
 
 const PayForm = props => {
+  const history = useHistory();
+
   const changeFocusOnCard = name => {
     props.changeFocusOnCard(name);
   };
@@ -146,7 +149,7 @@ const PayForm = props => {
           <span>{isPayForOrder ? 'Pay Now' : 'CashOut'}</span>
         </button>
         {isPayForOrder && (
-          <div onClick={() => props.back()} className={styles.backButton}>
+          <div onClick={() => history.goBack()} className={styles.backButton}>
             <span>Back</span>
           </div>
         )}
