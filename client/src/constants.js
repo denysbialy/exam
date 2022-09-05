@@ -196,4 +196,12 @@ export default {
       label: 'customers',
     },
   ],
+  PAYMENT_INFO_ORDER: {
+    header: 'Order Summary',
+    packageName: 'Package Name: Standard',
+    packagePrice: '$100 USD',
+    total: 'Total:',
+    price: '$100.00 USD',
+    promocode: 'Have a promo code?',
+  },
 };

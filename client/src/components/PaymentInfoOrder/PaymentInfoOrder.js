@@ -1,19 +1,21 @@
 import React from 'react';
 import styles from './PaymentInfoOrder.module.sass';
+import CONSTANTS from '../../constants';
+
 const PaymentInfoOrder = () => {
   return (
     <>
       <div className={styles.orderInfoContainer}>
-        <span className={styles.orderHeader}>Order Summary</span>
+        <span className={styles.orderHeader}>{CONSTANTS.PAYMENT_INFO_ORDER.header}</span>
         <div className={styles.packageInfoContainer}>
-          <span className={styles.packageName}>Package Name: Standard</span>
-          <span className={styles.packagePrice}>$100 USD</span>
+          <span className={styles.packageName}>{CONSTANTS.PAYMENT_INFO_ORDER.packageName}</span>
+          <span className={styles.packagePrice}>{CONSTANTS.PAYMENT_INFO_ORDER.packagePrice}</span>
         </div>
         <div className={styles.resultPriceContainer}>
-          <span>Total:</span>
-          <span>$100.00 USD</span>
+          <span>{CONSTANTS.PAYMENT_INFO_ORDER.total}</span>
+          <span>{CONSTANTS.PAYMENT_INFO_ORDER.price}</span>
         </div>
-        <a href='http://www.google.com'>Have a promo code?</a>
+        <a href='http://www.google.com'>{CONSTANTS.PAYMENT_INFO_ORDER.promocode}</a>
       </div>
     </>
   );
