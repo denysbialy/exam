@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import { payRequest, clearPaymentStore } from '../../actions/actionCreator';
@@ -6,7 +7,6 @@ import PayForm from '../../components/PayForm/PayForm';
 import styles from './Payment.module.sass';
 import CONSTANTS from '../../constants';
 import Error from '../../components/Error/Error';
-import { Link, useHistory } from 'react-router-dom';
 import PaymentInfoOrder from 'components/PaymentInfoOrder/PaymentInfoOrder';
 
 const Payment = props => {
@@ -15,8 +15,9 @@ const Payment = props => {
   const payment = useSelector(state => state.payment);
   const contestStore = useSelector(state => state.contestStore);
 
-  const dispatch = useDispatch()
-  const payDispatch = ({data, history}) => dispatch(payRequest(data, history));
+  const dispatch = useDispatch();
+  const payDispatch = ({ data, history }) =>
+    dispatch(payRequest(data, history));
   const clearPayment = () => dispatch(clearPaymentStore());
 
   const pay = values => {
@@ -42,8 +43,6 @@ const Payment = props => {
     });
   };
 
- 
-
   const { error } = payment;
 
   if (isEmpty(contestStore.contests)) {
@@ -63,7 +62,13 @@ const Payment = props => {
       <div className={styles.mainContainer}>
         <div className={styles.paymentContainer}>
           <span className={styles.headerLabel}>Checkout</span>
-          {error && ( <Error data={error.data} status={error.status} clearError={clearPayment}/>)}
+          {error && (
+            <Error
+              data={error.data}
+              status={error.status}
+              clearError={clearPayment}
+            />
+          )}
           <PayForm sendRequest={pay} isPayForOrder />
         </div>
         <PaymentInfoOrder />

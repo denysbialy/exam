@@ -1,5 +1,5 @@
 import React from 'react';
-import Cards from 'react-credit-cards';
+
 import { Form, Formik } from 'formik';
 import 'react-credit-cards/es/styles-compiled.css';
 import { connect } from 'react-redux';
@@ -8,6 +8,7 @@ import { changeFocusOnCard } from '../../actions/actionCreator';
 import PayInput from '../InputComponents/PayInput/PayInput';
 import Schems from '../../validators/validationSchems';
 import { useHistory } from 'react-router-dom';
+import CardView from 'pages/Payment/CardView/CardView';
 
 const PayForm = props => {
   const history = useHistory();
@@ -20,7 +21,7 @@ const PayForm = props => {
     props.sendRequest(values);
   };
 
-  const { focusOnElement, isPayForOrder } = props;
+  const { isPayForOrder } = props;
   return (
     <div className={styles.payFormContainer}>
       <span className={styles.headerInfo}>Payment Information</span>
@@ -36,19 +37,9 @@ const PayForm = props => {
         validationSchema={Schems.PaymentSchema}
       >
         {({ values }) => {
-          const { name, number, expiry, cvc } = values;
-
           return (
             <>
-              <div className={styles.cardContainer}>
-                <Cards
-                  number={number || ''}
-                  name={name || ''}
-                  expiry={expiry || ''}
-                  cvc={cvc || ''}
-                  focused={focusOnElement}
-                />
-              </div>
+              <CardView values={values} focusOnElement={props.focusOnElement} />
               <Form id='myForm' className={styles.formContainer}>
                 <div className={styles.bigInput}>
                   <span>Name</span>
