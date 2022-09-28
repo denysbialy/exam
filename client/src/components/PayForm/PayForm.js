@@ -1,26 +1,25 @@
 import React from 'react';
-
+import { useHistory } from 'react-router-dom';
 import { Form, Formik } from 'formik';
 import 'react-credit-cards/es/styles-compiled.css';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
 import styles from './PayForm.module.sass';
 import { changeFocusOnCard } from '../../actions/actionCreator';
-import PayInput from '../InputComponents/PayInput/PayInput';
+import PayInput from './PayInput/PayInput';
 import Schems from '../../validators/validationSchems';
-import { useHistory } from 'react-router-dom';
 import CardView from 'components/PayForm/CardView/CardView';
 
 const PayForm = props => {
-  const history = useHistory();
+  const dispatch = useDispatch();
+  const changeFocusOnCardDispatch = data => dispatch(changeFocusOnCard(data));
 
-  const changeFocusOnCard = name => {
-    props.changeFocusOnCard(name);
-  };
+  const history = useHistory();
 
   const pay = values => {
     props.sendRequest(values);
   };
-  
+
   return (
     <div className={styles.payFormContainer}>
       <span className={styles.headerInfo}>Payment Information</span>
@@ -39,37 +38,21 @@ const PayForm = props => {
           return (
             <>
               <CardView values={values} focusOnElement={props.focusOnElement} />
-              
+
               <Form id='myForm' className={styles.formContainer}>
                 <div className={styles.bigInput}>
                   <span>Name</span>
                   <PayInput
                     name='name'
-                    classes={{
-                      container: styles.inputContainer,
-                      input: styles.input,
-                      notValid: styles.notValid,
-                      error: styles.error,
-                    }}
                     type='text'
                     label='name'
-                    changeFocus={changeFocusOnCard}
+                    changeFocus={changeFocusOnCardDispatch}
                   />
                 </div>
                 {!props.isPayForOrder && (
                   <div className={styles.bigInput}>
                     <span>Sum</span>
-                    <PayInput
-                      name='sum'
-                      classes={{
-                        container: styles.inputContainer,
-                        input: styles.input,
-                        notValid: styles.notValid,
-                        error: styles.error,
-                      }}
-                      type='text'
-                      label='sum'
-                    />
+                    <PayInput name='sum' type='text' label='sum' />
                   </div>
                 )}
                 <div className={styles.bigInput}>
@@ -78,15 +61,9 @@ const PayForm = props => {
                     isInputMask
                     mask='9999 9999 9999 9999 999'
                     name='number'
-                    classes={{
-                      container: styles.inputContainer,
-                      input: styles.input,
-                      notValid: styles.notValid,
-                      error: styles.error,
-                    }}
                     type='text'
                     label='card number'
-                    changeFocus={changeFocusOnCard}
+                    changeFocus={changeFocusOnCardDispatch}
                   />
                 </div>
                 <div className={styles.smallInputContainer}>
@@ -96,15 +73,9 @@ const PayForm = props => {
                       isInputMask
                       mask='99/99'
                       name='expiry'
-                      classes={{
-                        container: styles.inputContainer,
-                        input: styles.input,
-                        notValid: styles.notValid,
-                        error: styles.error,
-                      }}
                       type='text'
                       label='expiry'
-                      changeFocus={changeFocusOnCard}
+                      changeFocus={changeFocusOnCardDispatch}
                     />
                   </div>
                   <div className={styles.smallInput}>
@@ -113,15 +84,9 @@ const PayForm = props => {
                       isInputMask
                       mask='9999'
                       name='cvc'
-                      classes={{
-                        container: styles.inputContainer,
-                        input: styles.input,
-                        notValid: styles.notValid,
-                        error: styles.error,
-                      }}
                       type='text'
                       label='cvc'
-                      changeFocus={changeFocusOnCard}
+                      changeFocus={changeFocusOnCardDispatch}
                     />
                   </div>
                 </div>
@@ -137,20 +102,14 @@ const PayForm = props => {
       )}
       <div className={styles.buttonsContainer}>
         <button form='myForm' className={styles.payButton} type='submit'>
-          <span>{props.isPayForOrder ? 'Pay Now' : 'CashOut'}</span>
+          {props.isPayForOrder ? 'Pay Now' : 'CashOut'}
         </button>
         {props.isPayForOrder && (
-          <div onClick={() => history.goBack()} className={styles.backButton}>
-            <span>Back</span>
-          </div>
+          <button onClick={() => history.goBack()} className={styles.backButton}>Back</button>
         )}
       </div>
     </div>
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  changeFocusOnCard: data => dispatch(changeFocusOnCard(data)),
-});
-
-export default connect(null, mapDispatchToProps)(PayForm);
+export default PayForm;

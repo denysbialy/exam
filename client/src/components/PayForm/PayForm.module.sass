@@ -16,7 +16,6 @@
     margin-bottom: 25px
     font-size: 18px
     margin-top: 10px
-  
 
   .buttonsContainer
     display: flex
@@ -50,7 +49,9 @@
       border-radius: 4px
       color: white
       margin-left: 10px
+      width: 200px
       @media(max-width: 480px)
+        width: 120px
         padding: 8px 30px
 
   .totalSum
@@ -87,45 +88,6 @@
         &:last-child
           margin-left: 5px
 
-        .inputContainer
-          align-self: stretch
-          display: flex
-          flex-direction: column
-          justify-content: center
-          align-items: center
-
-          .error
-            align-self: flex-end
-            color: red
-            margin-top: 2px
-            font-size: 14px
-
-          .input
-
-          .notValid
-            border: 1px solid red
-
-        input
-          display: inline-block
-          align-self: stretch
-          outline: 0
-          line-height: 1.4
-          font-size: 14px
-          color: #555
-          margin-top: 4px
-          padding: 5px
-          background-color: white
-          border: 1px solid #ccc
-          transition: all 0.2s
-          -webkit-font-smoothing: antialiased
-          @media(max-width: 480px)
-            max-width: 130px
-
-        span
-          font-weight: 400
-          font-size: 14px
-          margin-bottom: 5px
-          color: #333
 
     .bigInput
       box-sizing: border-box
@@ -136,42 +98,3 @@
       flex-direction: column
       justify-content: center
       align-items: flex-start
-
-      .inputContainer
-        align-self: stretch
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-
-        .error
-          align-self: flex-end
-          color: red
-          margin-top: 2px
-          font-size: 14px
-
-        .input
-
-        .notValid
-          border: 1px solid red
-
-      span
-        font-weight: 400
-        font-size: 14px
-        margin-bottom: 5px
-        color: #333
-
-      input
-        align-self: stretch
-        outline: 0
-        line-height: 1.4
-        font-size: 14px
-        color: #555
-        margin-top: 4px
-        padding: 5px
-        background-color: white
-        border: 1px solid #ccc
-        transition: all 0.2s
-        -webkit-font-smoothing: antialiased
-
-
