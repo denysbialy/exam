@@ -8,7 +8,7 @@ import { changeFocusOnCard } from '../../actions/actionCreator';
 import PayInput from '../InputComponents/PayInput/PayInput';
 import Schems from '../../validators/validationSchems';
 import { useHistory } from 'react-router-dom';
-import CardView from 'pages/Payment/CardView/CardView';
+import CardView from 'components/PayForm/CardView/CardView';
 
 const PayForm = props => {
   const history = useHistory();
@@ -20,8 +20,7 @@ const PayForm = props => {
   const pay = values => {
     props.sendRequest(values);
   };
-
-  const { isPayForOrder } = props;
+  
   return (
     <div className={styles.payFormContainer}>
       <span className={styles.headerInfo}>Payment Information</span>
@@ -40,6 +39,7 @@ const PayForm = props => {
           return (
             <>
               <CardView values={values} focusOnElement={props.focusOnElement} />
+              
               <Form id='myForm' className={styles.formContainer}>
                 <div className={styles.bigInput}>
                   <span>Name</span>
@@ -56,7 +56,7 @@ const PayForm = props => {
                     changeFocus={changeFocusOnCard}
                   />
                 </div>
-                {!isPayForOrder && (
+                {!props.isPayForOrder && (
                   <div className={styles.bigInput}>
                     <span>Sum</span>
                     <PayInput
@@ -130,16 +130,16 @@ const PayForm = props => {
           );
         }}
       </Formik>
-      {isPayForOrder && (
+      {props.isPayForOrder && (
         <div className={styles.totalSum}>
           <span>Total: $100.00</span>
         </div>
       )}
       <div className={styles.buttonsContainer}>
         <button form='myForm' className={styles.payButton} type='submit'>
-          <span>{isPayForOrder ? 'Pay Now' : 'CashOut'}</span>
+          <span>{props.isPayForOrder ? 'Pay Now' : 'CashOut'}</span>
         </button>
-        {isPayForOrder && (
+        {props.isPayForOrder && (
           <div onClick={() => history.goBack()} className={styles.backButton}>
             <span>Back</span>
           </div>
